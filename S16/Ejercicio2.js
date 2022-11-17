@@ -5,7 +5,7 @@ let pasarCelsius= (grado)=>{
 }
 
  
-alert("Al convertir " + Faren+ " grados Fahrenheit a Celsius se obtiene: "+ pasarCelsius(F).toFixed(2) +"°C");
+alert("Al convertir " + F+ " grados Fahrenheit a Celsius se obtiene: "+ pasarCelsius(F).toFixed(2) +"°C");
 
 let C=+prompt("Ingrese grados °C")
 
@@ -14,4 +14,4 @@ let pasarFarenheit= (grado)=>{
 }
 
  
-alert("Al convertir " + Faren+ " grados Fahrenheit a Celsius se obtiene: "+ pasarCelsius(C).toFixed(2) +"°C");
+alert("Al convertir " + C+ " grados Celsius a Fahrenheit  se obtiene: "+ pasarFarenheit(C).toFixed(2) +"F");
