@@ -1,9 +1,8 @@
 let N1=+prompt("Ingrese primer número: ")
 let N2=+prompt("Ingrese segundo número: ")
 
-function suma(N1,N2){
-    
+function suma(x,y){
+    return x +y
 };
-var suma = N1 + N2
 
-alert("La suma de "+N1+ " + " + N2 + " es igual a : " + suma)
+alert("La suma de "+N1+ " + " + N2 + " es igual a : " + suma(N1,N2))
