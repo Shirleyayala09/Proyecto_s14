@@ -14,4 +14,4 @@ let pasarFarenheit= (grado)=>{
 }
 
  
-alert("Al convertir " + C+ " grados Celsius a Fahrenheit  se obtiene: "+ pasarFarenheit(C).toFixed(2) +"F");
+alert("Al convertir " + C + " grados Celsius a Fahrenheit  se obtiene: "+ pasarFarenheit(C).toFixed(2) +"F");
