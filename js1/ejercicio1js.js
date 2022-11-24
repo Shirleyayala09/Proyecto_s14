@@ -82,23 +82,6 @@ function ordenarMaestro() {
     console.log(MaestroPokemon.pokemon.sort( (a, b) => (b.base_damage + b.max_damage) - (a.base_damage + a.max_damage) ))
 }
 
-
-//7. Crear una funcion que determine el daño que hara un pokemon elegido de la lista ante una posible pelea, para ello considerar que el daño que hara el pokemon es:
-// daño = base_damage + un valor aleatorio entre el min_damage y el max_damage
- 
-function setDamage(index){
-    if (index < pokemons.length){
-        addAtributes()
-        let selectedPokemon = pokemons[index]
-        let total_damage = selectedPokemon.base_damage + Math.floor(Math.random() * (selectedPokemon.max_damage-1+selectedPokemon.min_damage)+selectedPokemon.min_damage)
-   
-        console.log(total_damage)
-    } else {
-        console.log(`Please enter a number not greater than ${pokemons.length - 1}`)
-    }
-}
-
-
 /*//9. Crear una lista desordenada de Pokemons en nuestro documento HTML
 const root = document.getElementById("root")
 const ol = document.createElement('ol')
@@ -121,7 +104,7 @@ table.append(tr)
 
 //Headers
 
-let headers = Object.keys(pokemon[0])
+let headers = Object.keys(pokemons[0])
 
 for(index in headers){
     const th=document.createElement("th")
@@ -134,7 +117,7 @@ for(let i=0;i<pokemons.length;i++){
     const trb = document.createElement("tr")
     const values =Object.values(pokemons[i])
 
-    for(let j=o;j<values.length;j++){
+    for(let j=0; j<values.length; j++){
         const tdb= document.createElement("td")
         tdb.textContent= values[j]
         trb.append(tdb)
