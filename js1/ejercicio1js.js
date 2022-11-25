@@ -18,15 +18,13 @@ let pokemons = [
 //2. Crear una funcion para ordernar los pokemons dependiendo de el argumento que se ingrese en la funcion. Pueden ingresar: type, base_damage, base_hp o speed.
  
 function sortPokemons(argument){
-    let validInput = ["type", "base_damage","base_hp","speed"]
-
-    if(validInput.includes(argument)){
-     let result=argument === "type"? (pokemon.sort((a,b) => a[argument] .localeCompare(b[argument]))) : (pokemons.short((a,b) => a[argument]))
-    console.log(result)
-    }else{
-        console.log("Debes ingresar un argumento valido")
-    }
-}
+  if(argument === "type" || argument === "name"){
+    pokemons.sort((a,b) => a[argument].locale.Compare(b[argument]))
+  }else{
+    pokemons.sort((a,b) => a[argument]-b[argument])
+  }
+  console.log(pokemons)
+  }
 //3. Crear una funcion que filtre el objeto pokemons y devuelva un arreglo con los pokemons filtrados. La funcion debe aceptar un argumento para filtrar por type de pokemon.
  
 function filtrarpokemon(argument) {
@@ -37,6 +35,11 @@ function filtrarpokemon(argument) {
         : filtrapokemon;
     console.log(result);
   }
+  function filterPokemons(argument){
+    let pokemonsFiltrados = pokemons.filter((element) => element.type === argument)
+    console.log(pokemonsFiltrados)
+}
+
 //4. Crear un objeto llamado Pokemon Master que tenga los siguientes atributos: id: number, name: string, created_date: string, y pokemon: array of objects.
  let pkemonMater = {
     id: 1,
@@ -124,7 +127,7 @@ for(let i=0;i<pokemons.length;i++){
     }
     table.append(trb)
 }
-
+   
 //11. Utilizando javascript modifica el codigo creado en el ejecicio anterior y agrega un evento que permita ordenar los pokemons haciendo click en sus encabezados.
  
 //12. Corrige la function sortPokemons para que acepte ordenarlos segun id y name.
