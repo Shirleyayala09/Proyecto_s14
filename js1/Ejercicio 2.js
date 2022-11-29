@@ -107,5 +107,6 @@ root.append(boton)
 
 
 //9. Agrega un listener al boton para que cuando el usuario haga hover sobre este, el boton desaparezca.
-
+boton.addEventListener("mouseover", () =>{
+boton.style.display = "none"})
 
