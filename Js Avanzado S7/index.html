@@ -4,54 +4,96 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio Js S7</title>
-    <link rel="stylesheet" href="S7.css">
+    <title> Sesion 07</title>
     <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- Icons Boostrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="S7.css">
 </head>
-<body>
-    
-    <form action="" class=" formulario" id="formulario" >
-       <h1 class="fs-1 text-primary text-center">Contact Us</h1>
-        <div class="formulario__grupo mb-3 d-flex align-items-center gap-3">
-            <i class="bi bi-person-fill fs-1 text-primary"></i>
-            <input type="text" class="form-control" name="usuario" id="formGroupExampleInput" placeholder="First Name" required>
-            <i class="formulario__validacion-estado fas fa-times-circle"></i>
-         </div>
-         
-        <div class=" formulario__grupo mb-3 d-flex align-items-center gap-3">
-             <i class="bi bi-person-fill fs-1 text-primary"></i>
-             <input type="text" class=" formulario__input form-control" name="nombre" placeholder="Last Name" required>
-             <i class="formulario__validacion-estado fas fa-times-circle"></i>
-        </div>
+<body>  
+    <h1 class="text-center text-primary mb-3 mt-3">Contact us</h1>
+    <hr class="pb-2 pt-2">
+    <div class="container w-80 bg-color-light">
+        <form id="form">
+            <!-- Fila 1 -->
+            <div class="row mb-3">
+                <div class="col col-1 fs-3">
+                    <i class="bi bi-person-fill text-primary"></i>
+                </div>
 
+                <div class="col col-11 col-xd-12">
+                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="First Name">
+                    <div id="error_nombre" class="form-text"></div>
+                </div>
+                
+            </div>
 
-          
-        <div class="formulario__grupo mb-3 d-flex align-items-center gap-3">
-            <i class="bi bi-envelope fs-1 text-primary"></i>
-            <input type="email" class="formulario__input form-control"  name="correo" id="exampleFormControlInput1" placeholder="Email Address">
-            <i class="formulario__validacion-estado fas fa-times-circle"></i>
-        </div>
+             <!-- Fila 2 -->
+             <div class="row mb-3">
+                <div class="col col-1 fs-3">
+                    <i class="bi bi-person-fill text-primary"></i>
+                </div>
 
-        <div class="formulario__grupo mb-3 d-flex align-items-center gap-3">
-            <i class="bi bi-telephone-fill fs-1 text-primary "></i>
-            <input type="number" class="formulario__input form-control"  name="telefono" id="exampleFormControlInput1" placeholder="Phone">
-            <i class="formulario__validacion-estado fas fa-times-circle"></i>
-        </div>
-        
-        <div class="mb-3 d-flex  gap-3">
-            <i class="bi bi-pencil-square fs-1 text-primary"></i>
-            <textarea class=" form-control" placeholder="Enter your massage for us here.We get back to you within 2 business days." id="floatingTextarea2"  style="height: 200px"></textarea>
-        </div>
-    
-        <div class="d-grid gap-2 col-6 mx-auto">
-        <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+                <div class="col col-11">
+                    <input type="text" class="form-control" id="last" aria-describedby="emailHelp" placeholder="Last Name">
+                    <div id="error_last" class="form-text"></div>
+                </div>
+                
+            </div>
 
-      </form>
+            <!-- Fila 3 -->
+
+            <div class="row mb-3">
+                <div class="col col-1 fs-3">
+                    <i class="bi bi-envelope text-primary"></i>
+                </div>
+
+                <div class="col col-11">
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email Address">
+                    <div id="error_email" class="form-text"></div>
+                </div>
+                
+            </div>
+            
+            <!-- Fila 4  -->
+            
+            <div class="row mb-3">
+                <div class="col col-1 fs-3">
+                    <i class="bi bi-telephone text-primary"></i>
+                </div>
+
+                <div class="col col-11">
+                    <input type="text" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="Phone">
+                    <div id="error_phone" class="form-text"></div>
+                </div>
+                
+            </div>
+
+            <!-- Fila 5 -->
+            <div class="row mb-3">
+                <div class="col col-1 fs-3">
+                    <i class="bi bi-pencil-square text-primary"></i>
+                </div>
+
+                <div class="col col-11">
+                    <textarea class="form-control" id="mensaje" rows="5" placeholder="Enter your massage for us here. We will get back to you within 2 business days"></textarea>
+                    <div id="error_mensaje" class="form-text"></div>
+                </div>
+                
+            </div>
+
+            <div class="mb-3 text-center">
+                <button type="submit" class="btn btn-primary" onclick="enviar()">Submit</button>
+              </div>
+            
+            
+          </form>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
     <script src="S7.js"></script>
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

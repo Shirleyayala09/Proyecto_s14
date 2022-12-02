@@ -1,60 +1,107 @@
-const formulario = document.getElementById('formulario');
-const inputs = document.querySelectorAll('#formulario input');
+function enviar(){
+    let name=document.getElementById(`name`).value
+    let last=document.getElementById(`last`).value
+    let email=document.getElementById(`email`).value
+    let phone=document.getElementById(`phone`).value
+    let mensaje=document.getElementById(`mensaje`).value
+    
+    //Regulador de caracteres
+    let vali_nombre=/^[a-zA-ZÀ-ÿ\s]{4,16}$/ //Username
 
-const expresiones = {
-	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
-	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	password: /^.{4,12}$/, // 4 a 12 digitos.
-	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
-}
+    let vali_correo= /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/ //email
+    let vali_celular= /^[9|6|7][0-9]{8}$/ // celular
 
-const campos = {
-	usuario: false,
-	nombre: false,
-	password: false,
-	correo: false,
-	telefono: false
-}
+    if(name==""){
+        let form=document.getElementById(`form`)
+        form.addEventListener("submit", function(event){
+            event.preventDefault()
+        })
+        document.getElementById("error_nombre").style.color = "#da2f2f";
+        document.getElementById("error_nombre").innerHTML=`Campos Obligatorios`
+    }
+    else if(!vali_nombre.test(name)){
+        let form=document.getElementById(`form`)
+        form.addEventListener("submit", function(event){
+            event.preventDefault()
+        })
+        document.getElementById("error_nombre").style.color = "#da2f2f";
+        document.getElementById("error_nombre").innerHTML=`Debes agregar caracteres normales`
+    }
 
-const validarFormulario = (e) => {
-	switch (e.target.name) {
-		case "usuario":
-			validarCampo(expresiones.usuario, e.target, 'usuario');
-		break;
-		case "nombre":
-			validarCampo(expresiones.nombre, e.target, 'nombre');
-		break;
-		case "password":
-			validarCampo(expresiones.password, e.target, 'password');
-			validarPassword2();
-		break;
-		case "password2":
-			validarPassword2();
-		break;
-		case "correo":
-			validarCampo(expresiones.correo, e.target, 'correo');
-		break;
-		case "telefono":
-			validarCampo(expresiones.telefono, e.target, 'telefono');
-		break;
-	}
-}
+    //Comprobar last name
 
-const validarCampo = (expresion, input, campo) => {
-	if(expresion.test(input.value)){
-		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
-		document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
-		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
-		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
-		campos[campo] = true;
-	} else {
-		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
-		document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
-		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
-		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
-		campos[campo] = false;
-	}
+    if(last==""){
+        let form=document.getElementById(`form`)
+        form.addEventListener("submit", function(event){
+            event.preventDefault()
+        })
+        document.getElementById("error_last").style.color = "#da2f2f";
+        document.getElementById("error_last").innerHTML=`Campos Obligatorios`
+    }
+    else if(!vali_nombre.test(last)){
+        let form=document.getElementById(`form`)
+        form.addEventListener("submit", function(event){
+            event.preventDefault()
+        })
+        document.getElementById("error_last").style.color = "#da2f2f";
+        document.getElementById("error_last").innerHTML=`Debes agregar caracteres normales`
+    }
+
+    //Comprobar Email
+
+    if(email==""){
+        let form=document.getElementById(`form`)
+        form.addEventListener("submit", function(event){
+            event.preventDefault()
+        })
+        document.getElementById("error_email").style.color = "#da2f2f";
+        document.getElementById("error_email").innerHTML=`Campos Obligatorios`
+    }
+    else if(!vali_correo.test(email)){
+        let form=document.getElementById(`form`)
+        form.addEventListener("submit", function(event){
+            event.preventDefault()
+        })
+        document.getElementById("error_email").style.color = "#da2f2f";
+        document.getElementById("error_email").innerHTML=`Debes agregar caracteres con @gmail.com`
+    }
+
+    //Comprobar PHONE
+
+    if(phone==""){
+        let form=document.getElementById(`form`)
+        form.addEventListener("submit", function(event){
+            event.preventDefault()
+        })
+        document.getElementById("error_phone").style.color = "#da2f2f";
+        document.getElementById("error_phone").innerHTML=`Campos Obligatorios`
+    }
+    else if(!vali_celular.test(phone)){
+        let form=document.getElementById(`form`)
+        form.addEventListener("submit", function(event){
+            event.preventDefault()
+        })
+        document.getElementById("error_phone").style.color = "#da2f2f";
+        document.getElementById("error_phone").innerHTML=`Debes empezar con "9" y solo agrega 9 digitos`
+    }
+
+    //Comprobar Mensaje
+
+    if(mensaje==""){
+        let form=document.getElementById(`form`)
+        form.addEventListener("submit", function(event){
+            event.preventDefault()
+        })
+        document.getElementById("error_mensaje").style.color = "#da2f2f";
+        document.getElementById("error_mensaje").innerHTML=`Campos Obligatorios`
+    }
+    else if(!vali_nombre.test(mensaje)){
+        let form=document.getElementById(`form`)
+        form.addEventListener("submit", function(event){
+            event.preventDefault()
+        })
+        document.getElementById("error_mensaje").style.color = "#da2f2f";
+        document.getElementById("error_mensaje").innerHTML=`Debes agregar caracteres normales`
+    }
+
 }
