@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio N°13</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="control">
+        <p>Recorrido: <input type="text" ng-model="trayecto"></p>
+        <p> Trayecto: {{trayecto}} K/h</p>
+        <p> S/. {{tarifafinal()}} </p>
+    </div>
+
+
+    <script>
+        let app = angular.module("myApp", []);
+        app.controller('control', function($scope) {
+            $scope.trayecto = 0;
+            $scope.tarifafinal = function() {
+                let monto = 0;
+                if($scope.trayecto <= 300) {
+                    return 250
+                } else if($scope.trayecto <= 1000) {
+                    monto = 250 + 30 * ($scope.trayecto - 300)
+                    if(monto > 500) { monto *= 0.9;}
+                    return monto ;
+                } else {
+                    monto = 250 + 30 * (1000 - 300) + 20 * ($scope.trayecto - 1000)
+                    if(monto > 500) {monto *= 0.9;}
+                    return  monto ;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
