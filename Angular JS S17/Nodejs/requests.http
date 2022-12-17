@@ -1,0 +1,30 @@
+###
+POST http://localhost:9000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"Lito Primario",
+    "age":"32",
+    "email":"lito@gmail.com"
+
+}
+
+###
+GET http://localhost:9000/api/users HTTP/1.1
+
+###
+GET http://localhost:9000/api/users/639cf499146b079638f00e8a HTTP/1.1
+
+###
+PUT  http://localhost:9000/api/users/639cf6ae146b079638f00e8e HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"Edu Rod",
+    "age":"26",
+    "email":"edu@gmail.com"
+
+}
+
+###
+DELETE  http://localhost:9000/api/users/639cf5cc146b079638f00e8c HTTP/1.1
